@@ -1,11 +1,11 @@
 package com.redtaildevel.weatherapp
 
-data class weatherData(
-    val context: List<String>? = null,
-    val id: String? = null,
-    val type: String? = null,
-    val geometry: Geometry? = null,
-    val properties: Properties? = null
+data class weatherDataContext(
+    val context: List<String>,
+    val id: String,
+    val type: String,
+    val geometry: Geometry,
+    val properties: Properties
 )
 
 data class Geometry(

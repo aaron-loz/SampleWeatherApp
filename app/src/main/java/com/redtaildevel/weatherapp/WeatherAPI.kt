@@ -25,8 +25,7 @@ class WeatherApi{
 
         val service = retrofit.create(endpointsInterface::class.java)
         val response: Call<WeatherApi> = service.getWeatherData(apiAddendum)
-        val listOfText = response.toString()
-        return listOfText;//Todo: parse response's body. Use youtube vids to figure it out.
+        return response.toString();//Todo: parse response's body. Use youtube vids to figure it out.
     }
 }
 
