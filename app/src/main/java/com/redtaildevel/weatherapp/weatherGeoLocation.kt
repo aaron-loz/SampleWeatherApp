@@ -12,7 +12,7 @@ class weatherGeoLocation{
     private var longitude = mCurrentLocation.longitude
     private var latestUpdateTime : Date = Calendar.getInstance().getTime()
 
-    var locResult : String = "$latitude,$longitude"
+    var locResult : String = "$latitude,$longitude/forecast"
 
     fun updateLocation(){
         val timeSinceLastUpdate : Int = Calendar.getInstance().getTime().compareTo(latestUpdateTime)

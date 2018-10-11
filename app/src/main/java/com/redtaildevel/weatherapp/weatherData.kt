@@ -1,57 +1,33 @@
 package com.redtaildevel.weatherapp
 
-data class weatherDataContext(
-    val context: List<String>,
-    val id: String,
-    val type: String,
-    val geometry: Geometry,
-    val properties: Properties
-)
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
+import io.realm.RealmObject
+import io.realm.annotations.PrimaryKey
+import io.realm.annotations.RealmClass
 
-data class Geometry(
-    val type: String,
-    val coordinates: List<Double>
-)
+@RealmClass
+open class weatherData: RealmObject() {
+    @PrimaryKey
+    @SerializedName("generatedAt")
+    @Expose
+    open var updatedTime: String? = null
 
-data class Properties(
-    val id: String,
-    val type: String,
-    val cwa: String,
-    val forecastOffice: String,
-    val gridX: Int,
-    val gridY: Int,
-    val forecast: String,
-    val forecastHourly: String,
-    val forecastGridData: String,
-    val observationStations: String,
-    val relativeLocation: RelativeLocation,
-    val forecastZone: String,
-    val county: String,
-    val fireWeatherZone: String,
-    val timeZone: String,
-    val radarStation: String
-)
+    @SerializedName("name")
+    @Expose
+    open var name: String? = null
+    open var isToday: Boolean = (name == "Today")
 
-data class RelativeLocation(
-    val type: String,
-    val geometry: Geometry,
-    val properties: locationProperties
-)
+    @SerializedName("temperature")
+    @Expose
+    open var temperature: Int = 0
 
-data class locationProperties(
-    val city: String,
-    val state: String,
-    val distance: Distance,
-    val bearing: Bearing
-)
+    @SerializedName("temperatureUnit")
+    @Expose
+    open var tempUnit: String? = null
 
-data class Distance(
-    val value: Double,
-    val unitCode: String
-)
-
-data class Bearing(
-    val value: Int,
-    val unitCode: String
-)
-
+    @SerializedName("shortForecast")
+    @Expose
+    open var shortForecast: String? = null
+}
+//Todo: Build a Farenheit to Celsius converter for that feature.

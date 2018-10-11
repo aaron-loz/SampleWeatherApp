@@ -3,7 +3,6 @@ package com.redtaildevel.weatherapp
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_main.*
 
 //we want main activity to call on weatherRecieve class
 class MainActivity : AppCompatActivity() {
@@ -18,8 +17,6 @@ class MainActivity : AppCompatActivity() {
         //TODO:Figure out why calling latestWeather.temp causes crashing.
         val avgDegreeView:TextView = findViewById<TextView>(R.id.avgDegreeView) as TextView;
         avgDegreeView.setText(latestWeather.getTemp())
-        val weatherCall : WeatherApi = WeatherApi()
 
-        listClothesView.setText(weatherCall.getWeatherData())
     }
 }
